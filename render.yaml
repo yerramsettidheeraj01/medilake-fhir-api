@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: medilake-fhir-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - {key: JWT_SECRET, generateValue: true}
+      - {key: H1_CLIENT_SECRET, generateValue: true}
+      - {key: H2_CLIENT_SECRET, generateValue: true}
+      - {key: H3_CLIENT_SECRET, generateValue: true}
+      - {key: PUBLIC_URL, sync: false}   # e.g. https://medilake-fhir-api.onrender.com
